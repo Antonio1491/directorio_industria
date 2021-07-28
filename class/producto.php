@@ -13,29 +13,41 @@ class Producto extends Empresa
 
     $totalProductos = count($producto);
 
-    for($i=0; $i<= $totalProductos; $i++)
+    if($totalProductos > 0 )
     {
 
-      $producto = $producto[$i];
+      for($i=0; $i<= $totalProductos; $i++)
+      {
 
-      $descripcionProducto = $descripcion[$i];
+        $producto = $producto[$i];
 
-      $foto = $this -> setImg($foto[$i]);
+        $descripcionProducto = $descripcion[$i];
 
-      if($foto){
+        $foto = $this -> setImg($foto[$i]);
 
-        $this -> guardarImg($foto);
+        if($foto){
 
-        $sql = "INSERT INTO productos
-                VALUES "
+          $this -> guardarImg($foto);
+
+          $sql = "INSERT INTO productos
+                  VALUES ('$producto', 
+                  '$descripcionProducto', 
+                  '$foto', 
+                  '$idEmpresa')";
+
+          $ejecutar = $this -> conexion_db -> query($sql);
+
+          $result = $ejecutar -> fetch_all(MYSQLI_ASSOC);
+
+        }
 
       }
 
-      return 
+      return true;
 
     }
 
-
+    return false;
 
   }
 
