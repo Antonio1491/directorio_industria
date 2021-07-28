@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
     
@@ -36,13 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $instagram = $_POST["instagram"];
     $youtube = $_POST["youtube"];
 
+    $categoria = $_POST["categoria"];
+
     $logotipo = $_FILES["file"];
 
-    $img = $datosForm -> setImg($logotipo);
+    $logotipo = $datosForm -> setImg($logotipo);
 
     $producto = $_POST["nom-prod"];
     $descripcionProducto = $_POST["desc-prod"];
-    $fotoProductos = $_FILES["archivo"];
+    $fotoProductos = $_FILES["fotoProducto"];
     
     // echo $nombre,$direccion,$email,$telefono,$direccionweb,$informacion,$whatsapp,$videourl,$catalogourl,$archivoF;
     $guardarEmpresa = $datosForm->guardarDatosEmpresa($nombre,
@@ -62,10 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 $instagram,
                                 $youtube);
 
+//setear las imagenes antes de guardarlas
+
     if($guardarEmpresa)
     {
-        $datosForm -> guardarImg($img);
+        $datosForm -> guardarImg($logotipo);
     }
+
+
 
     /* === Valores de los campos del formulario para el representante */
     // $representante
@@ -110,3 +116,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 ?>
+
