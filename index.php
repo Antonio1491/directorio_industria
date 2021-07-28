@@ -102,7 +102,7 @@ $empresa = new Empresa();
 
             <div class="col-12 mt-2 otro">
 
-              <?php echo $empresa -> getHtmlCategorias(); ?>
+               <?php echo $empresa -> getHtmlCategorias(); ?> 
 
               </div>
 

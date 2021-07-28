@@ -1,5 +1,5 @@
 <?php
-class Categoria extends Empresa()
+class Categoria extends Empresa
 {
 
   public $categoria;
@@ -50,7 +50,7 @@ class Categoria extends Empresa()
   {
     $bloque = "";
 
-    foreach($this -> getCategorias() as $data)
+    foreach($this -> getCategoria() as $data)
     {
       $id = $data["id_cat"];
 

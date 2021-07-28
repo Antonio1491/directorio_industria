@@ -71,23 +71,48 @@ class Empresa extends Conexion{
 
     $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
-    return return $resultado;
+    return  $resultado;
     
   }
 
-  public function getHtmlPaises()
-  {
+  public function getHtmlPaises (){
     $paises = "";
     foreach($this -> getPaises() as $data)
     {
-      $pais = $data["pais"];
-      $paises .= '<option value="'.$pais.'">'.$pais.'</option>';
+      $lista = $data["pais"];
+      $paises .= '<option value="'.$lista.'">'.$lista.'</option>';
     }
-​
+
     return $paises;
-​
+
   }
-​
+  public function getCategorias()
+  {
+
+    $sql = "SELECT * 
+    FROM categorias" ;
+
+    $consulta = $this->conexion_db->query($sql);
+
+    $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+    return $resultado;
+
+  }
+
+  public function getHtmlCategorias()
+  {
+    $bloque = "";
+    foreach($this -> getCategorias() as $data)
+    {
+      $id = $data["id_cat"];
+      $categoria = $data["categoria"];
+      $bloque .= '<input  type="checkbox" name="categoria" value="'.$id.'"> <label>'.$categoria.'</label>';
+    }
+
+    return $bloque;
+
+  }
 
   public function validarImg($img)
   {
