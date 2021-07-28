@@ -19,7 +19,7 @@ class Empresa extends Conexion{
   public function guardarDatosEmpresa($nombre,$direccion,$email,$telefono,$direccionweb,$informacion,$whatsapp,$videourl,$catalogourl,$archivoF,$pais,$ciudad, $facebook,$twitter,$instagram,$youtube)
   {
 
-  $sql = "INSERT INTO empresa 
+  $sql = "INSERT INTO empresas
     VALUES (null, 
     '$nombre',
     '$direccion', 
@@ -51,7 +51,7 @@ class Empresa extends Conexion{
     $this -> empresa = $nombre;
 
     $sql = "SELECT * 
-    FROM empresa
+    FROM empresas
     WHERE nombre = '{$this -> empresa}'";
 
     $ejecutar = $this -> conexion_db -> query($sql);
@@ -71,37 +71,23 @@ class Empresa extends Conexion{
 
     $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
-    return $resultado;
+    return return $resultado;
     
   }
 
-  public function getCategorias()
+  public function getHtmlPaises()
   {
-
-    $sql = "SELECT * 
-    FROM categorias" ;
-
-    $consulta = $this->conexion_db->query($sql);
-
-    $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-
-    return $resultado;
-
-  }
-
-  public function getHtmlCategorias()
-  {
-    $bloque = "";
-    foreach($this -> getCategorias() as $data)
+    $paises = "";
+    foreach($this -> getPaises() as $data)
     {
-      $id = $data["id_cat"];
-      $categoria = $data["categoria"];
-      $bloque .= '<input type="checkbox" name="categoria" value="'.$id.'"> <label>'.$categoria.'</label>';
+      $pais = $data["pais"];
+      $paises .= '<option value="'.$pais.'">'.$pais.'</option>';
     }
-
-    return $bloque;
-
+​
+    return $paises;
+​
   }
+​
 
   public function validarImg($img)
   {
