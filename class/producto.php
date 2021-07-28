@@ -1,6 +1,6 @@
 <?php
 
-class Producto extends Empresa()
+class Producto extends Empresa
 {
   public function __construct()
   {
@@ -35,7 +35,7 @@ class Producto extends Empresa()
   // El método consulta los productos de una empresa y devuelve el resultado en un array 
   public function getProductos($empresa)
   {
-    
+
     $sql = "SELECT *
     FROM productos 
     WHERE id_empresa = '$empresa' ";

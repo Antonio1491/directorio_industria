@@ -50,7 +50,7 @@ class Categoria extends Empresa
   {
     $bloque = "";
 
-    foreach($this -> getCategoria() as $data)
+    foreach($this -> allCategorias() as $data)
     {
       $id = $data["id_cat"];
 
