@@ -40,12 +40,14 @@ class Empresa extends Conexion{
 
   $ejecutar = $this -> conexion_db -> query($sql);
 
-  $this -> empresa = $nombre; //se asigna el nombre como variable global
+  $this -> empresa = $nombre; 
 
   return $ejecutar;
 
   }
 
+  /*Método trae los datos de una empresa por medio del nombre
+  */
   public function getEmpresaByNombre($nombre)
   {
     $this -> empresa = $nombre;
@@ -64,6 +66,7 @@ class Empresa extends Conexion{
 
   public function getPaises()
   {
+
     $sql = "SELECT * 
     FROM lista_paises" ;
 
@@ -77,13 +80,20 @@ class Empresa extends Conexion{
   
   public function getHtmlPaises ()
   {
+
     $paises = "";
+
     foreach($this -> getPaises() as $data)
     {
+
       $lista = $data["pais"];
+
       $paises .= '<option value="'.$lista.'">'.$lista.'</option>';
+
     }
+
     return $paises;
+    
   }
 
   public function validarImg($img)

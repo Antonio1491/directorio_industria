@@ -31,16 +31,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $catalogourl = $_POST["catalogourl"];
     $pais = $_POST["pais"];
     $ciudad = $_POST["ciudad"];
+
+    $logotipo = $_FILES["file"];
+
+    $logotipo = $datosForm -> setImg($logotipo);
+
     $facebook = $_POST["facebook"];
     $twitter = $_POST["twitter"];
     $instagram = $_POST["instagram"];
     $youtube = $_POST["youtube"];
 
+    /* === Valores de los campos del formulario para el representante */
+    $representante = $_POST["nom-rep"];
+    $telRepresentante = $_POST["tele-rep"];
+    $puesto = $_POST["email-rep"];
+    $urlHL = $_POST["link-rep"];
+    $foto = $_POST["facebook"];
+    $idEmpresa = $_FILES["foto"];
+
+    $dataRepresentante= [
+        "nombre" => "$representante",
+        "telefono" => "$telRepresentante",
+        "cargo" => "$puesto",
+        "urlHL" => "$urlHL",
+        "foto" => "$foto",
+        "idEmpresa" => "$idEmpresa"
+        ];
+      
+    $dataRepresentante = json_encode($dataRepresentante);
+    
+    $guardarRepresentante = $representante -> guardarRepresentante($dataRepresentante); 
+
     $categoria = $_POST["categoria"];
 
-    $logotipo = $_FILES["file"];
-
-    $logotipo = $datosForm -> setImg($logotipo);
+    //guardar categorias
 
     $producto = $_POST["nom-prod"];
     $descripcionProducto = $_POST["desc-prod"];
@@ -73,26 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 
-    /* === Valores de los campos del formulario para el representante */
-    // $representante
-    // $telRepresentante
-    // $puesto
-    // $urlHL
-    // $foto 
-    // $idEmpresa
-
-    $dataRepresentante= [
-        "nombre" => "$representante",
-        "telefono" => "$telRepresentante",
-        "cargo" => "$puesto",
-        "urlHL" => "$urlHL",
-        "foto" => "$foto",
-        "idEmpresa" => "$idEmpresa"
-        ];
-      
-    $dataRepresentante = json_encode($dataRepresentante);
     
-    $guardarRepresentante = $representante -> guardarRepresentante($dataRepresentante); 
 
     if($guardarEmpresa && $guardarRepresentante){
         echo '<script>

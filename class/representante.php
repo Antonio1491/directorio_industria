@@ -38,6 +38,7 @@ class Representante extends Empresa
 
   }
   
+  // El método obtiene al representante de la empresa a través del id de la empresA
   public function getRepresentante($idEmpresa)
   {
     
