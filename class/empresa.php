@@ -71,23 +71,20 @@ class Empresa extends Conexion{
 
     $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
-    return return $resultado;
+    return $resultado;
     
   }
-
-  public function getHtmlPaises()
+  
+  public function getHtmlPaises ()
   {
     $paises = "";
     foreach($this -> getPaises() as $data)
     {
-      $pais = $data["pais"];
-      $paises .= '<option value="'.$pais.'">'.$pais.'</option>';
+      $lista = $data["pais"];
+      $paises .= '<option value="'.$lista.'">'.$lista.'</option>';
     }
-​
     return $paises;
-​
   }
-​
 
   public function validarImg($img)
   {

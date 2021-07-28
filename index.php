@@ -1,6 +1,7 @@
 <?php session_start();
 require ("class/clases.php");
 $empresa = new Empresa();
+$categorias = new Categoria();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,10 +58,10 @@ $empresa = new Empresa();
 
           <div class="col-6 mt-2">
             <select id="pais" class="form-select" aria-label="Default select example" required name="pais">
-              <option selected value="0">Selecciona un pais</option>
+              <!-- <option selected value="0">Selecciona un pais</option> -->
               </div>
                 <?php echo $empresa -> getHtmlPaises();?>
-            </select>
+            <!-- </select> -->
             </div>
 
             <div class="col-6 mt-2">
@@ -91,7 +92,7 @@ $empresa = new Empresa();
               <input type="text" class="form-control" id="email-rep" aria-describedby="emailHelp" placeholder="Puesto" name="email-rep">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="link-rep"" aria-describedby="emailHelp" placeholder="Link Higherlogic" name="link-rep">
+              <input type="text" class="form-control" id="link-rep" aria-describedby="emailHelp" placeholder="Link Higherlogic" name="link-rep">
             </div>
             <div id="" class="col-12 mt-2">
                 <input type="file" name="archivo[]" class="form-control" placeholder="Descripcion del producto" onchange="ValidateSingleInput(this);">Imagen representante
@@ -102,7 +103,7 @@ $empresa = new Empresa();
 
             <div class="col-12 mt-2 otro">
 
-              <?php echo $empresa -> getHtmlCategorias(); ?>
+              <?php echo $categorias -> getHtmlCategorias(); ?>
 
               </div>
 
