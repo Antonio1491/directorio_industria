@@ -26,9 +26,16 @@ class Producto extends Empresa
 
         $this -> guardarImg($foto);
 
+        $sql = "INSERT INTO productos
+                VALUES "
+
       }
 
+      return 
+
     }
+
+
 
   }
 
@@ -47,6 +54,8 @@ class Producto extends Empresa
     return $result;
 
   }
+
+
   
 }
 ?>
