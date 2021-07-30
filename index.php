@@ -116,7 +116,7 @@ $categorias = new Categoria();
                 <input type="text" name="desc-prod[]" class="form-control" placeholder="Descripcion del producto">
             </div>
             <div id="listas1" class="col-12 mt-2">
-                <input type="file" name="archivo[]" class="form-control" placeholder="Descripcion del producto" onchange="ValidateSingleInput(this);">Imagen producto
+                <input type="file" name="fotoProducto[]" class="form-control" placeholder="Descripcion del producto" onchange="ValidateSingleInput(this);">Imagen producto
             </div>
             <div class="col-12 mt-2">
             <input type="button" id="add_field" value="Agregar Producto" class="btn btn-success">

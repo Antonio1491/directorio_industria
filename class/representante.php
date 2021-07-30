@@ -15,15 +15,20 @@ class Representante extends Empresa
   {
     $data = json_decode($data);
 
+    //setear la img y guardarla en la carpeta
+   $setFoto = $this-> setImg($data -> foto);
+
+   $saveFoto = $this -> guardarImg($setFoto);
+
     $sql ="INSERT INTO representante
     VALUES (
       null,
-      '$data -> nombre',
-      '$data -> telefono',
-      '$data -> cargo',
-      '$data -> urlHL',
-      '$data -> foto',
-      '$data -> idEmpresa'
+      '{$data -> nombre}',
+      '{$data -> telefono}',
+      '{$data -> cargo}',
+      '{$data -> urlHL}',
+      '$setFoto',
+      '{$data -> idEmpresa}'
     )";
 
     $result = false;
