@@ -16,6 +16,8 @@
 require ("clases.php");
 $datosForm= new Empresa();
 $representante = new Representante();
+$categorias = new Categoria();
+$producto = new Producto();
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -34,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $logotipo = $_FILES["file"];
 
+     //setear las imagenes antes de guardarlas
     $logotipo = $datosForm -> setImg($logotipo);
 
     $facebook = $_POST["facebook"];
@@ -41,35 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $instagram = $_POST["instagram"];
     $youtube = $_POST["youtube"];
 
-    /* === Valores de los campos del formulario para el representante */
-    $representante = $_POST["nom-rep"];
-    $telRepresentante = $_POST["tele-rep"];
-    $puesto = $_POST["email-rep"];
-    $urlHL = $_POST["link-rep"];
-    $foto = $_POST["facebook"];
-    $idEmpresa = $_FILES["foto"];
-
-    $dataRepresentante= [
-        "nombre" => "$representante",
-        "telefono" => "$telRepresentante",
-        "cargo" => "$puesto",
-        "urlHL" => "$urlHL",
-        "foto" => "$foto",
-        "idEmpresa" => "$idEmpresa"
-        ];
-      
-    $dataRepresentante = json_encode($dataRepresentante);
-    
-    $guardarRepresentante = $representante -> guardarRepresentante($dataRepresentante); 
-
-    $categoria = $_POST["categoria"];
-
-    //guardar categorias
-
-    $producto = $_POST["nom-prod"];
-    $descripcionProducto = $_POST["desc-prod"];
-    $fotoProductos = $_FILES["fotoProducto"];
-    
+   //guardar en la carpeta
+    $datosForm -> guardarImg($logotipo);
+  
+    //guardar los datos de la empresa
     // echo $nombre,$direccion,$email,$telefono,$direccionweb,$informacion,$whatsapp,$videourl,$catalogourl,$archivoF;
     $guardarEmpresa = $datosForm->guardarDatosEmpresa($nombre,
                                 $direccion,
@@ -80,21 +58,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 $whatsapp,
                                 $videourl,
                                 $catalogourl,
-                                $img,
+                                $logotipo,
                                 $pais,
                                 $ciudad,
                                 $facebook,
                                 $twitter,
                                 $instagram,
                                 $youtube);
+    
+    //obtener el id de la empresa
+    $dataEmpresa = json_decode($datosForm -> getEmpresaByNombre($nombre));
 
-//setear las imagenes antes de guardarlas
+    $idEmpresa = $dataEmpresa -> nombre;
 
-    if($guardarEmpresa)
-    {
-        $datosForm -> guardarImg($logotipo);
-    }
 
+    /* === Valores de los campos del formulario para el representante */
+    $nomRepresentante = $_POST["nom-rep"];
+    $telRepresentante = $_POST["tele-rep"];
+    $puesto = $_POST["email-rep"];
+    $urlHL = $_POST["link-rep"];
+    $foto = $_POST["foto"];
+
+    $dataRepresentante= [
+        "nombre" => "$nomRepresentante",
+        "telefono" => "$telRepresentante",
+        "cargo" => "$puesto",
+        "urlHL" => "$urlHL",
+        "foto" => "$foto",
+        "idEmpresa" => "$idEmpresa"
+        ];
+  
+    $dataRepresentante = json_encode($dataRepresentante);
+    
+    $guardarRepresentante = $representante -> guardarRepresentante($dataRepresentante);
+ 
+    //array de categorias seleccionadas
+    $categoria = $_POST["categoria"];
+
+    //guardar categorias}
+    $saveCategorias = $categorias -> guardarCatEmpresa($idEmpresa, $categoria);
+
+    //guaradar los datos del producto
+    $productos = $_POST["nom-prod"];
+
+    $descripcionProducto = $_POST["desc-prod"];
+
+    $fotoProductos = $_FILES["fotoProducto"];
+
+    $producto -> guardarProducto($productos, $descripcionProducto, $fotoProductos, $idEmpresa);
 
 
     

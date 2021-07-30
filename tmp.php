@@ -5,18 +5,20 @@ $prueba = new Representante();
 
 $empresa = new Empresa();
 
-// $dataRepresentante= [
-//   "nombre" => "$nombre",
-//   "telefono" => "$telefono",
-//   "cargo" => "$puesto",
-//   "urlHL" => "$urlHL",
-//   "foto" => "$foto",
-//   "idEmpresa" => "$idEmpresa"
-// ];
+$dataRepresentante= [
+  "nombre" => "Nombre",
+  "telefono" => "44444",
+  "cargo" => "$TI",
+  "urlHL" => "www.ejemplo.com",
+  "foto" => "foto",
+  "idEmpresa" => "ANPRid"
+];
 
-// $dataRepresentante = json_encode($datosRepresentante);
+$data = json_encode($dataRepresentante);
 
-// var_dump($data);
+$data = json_decode($data);
+
+var_dump($data->nombre);
 
 
 

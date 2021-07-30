@@ -114,6 +114,7 @@ class Empresa extends Conexion{
 
   }
 
+  //Método setea el nombre de la imagen y la válida devolviendo el nuevo nombre
   public function setImg($img)
   {
     

@@ -64,7 +64,10 @@ class Categoria extends Empresa
   }
 
   //Método que recibe un array de categorias para guardar en la tabla cat_membresia
-  public function guardarCatEmpresa($idEmpresa, $arrayCat){
+  public function guardarCatEmpresa($idEmpresa, $arrayCat)
+  {
+
+    $result = false;
 
     foreach($arrayCat as $valor)
     {
@@ -77,7 +80,16 @@ class Categoria extends Empresa
 
       $guardar = $this -> conexion_db -> query($sql);
 
+      if($guardar){
+        $result = true;
+      }
+      else{
+        $result = false;
+      }
+
     }
+
+    return $result;
 
   }
 
