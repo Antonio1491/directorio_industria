@@ -26,78 +26,80 @@ $categorias = new Categoria();
           <h1 class="text-center">Formulario Empresas</h1>
         <label for="exampleInputEmail1" class="form-label">Datos de la empresa</label>
         <div class="col-6">
-          <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre de la empresa" name="nombre">
+          <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre de la empresa *" name="nombre">
         </div>
         <div class="col-6">
-          <input type="text" class="form-control" id="direccion" placeholder="Direccion" name="direccion">
+          <input type="text" class="form-control" id="direccion" placeholder="Direccion *" name="direccion">
         </div>
         <div class="col-6 mt-2">
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" name="email">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email *" name="email">
           </div>
           <div class="col-6 mt-2">
-            <input type="text" class="form-control" id="telefono" placeholder="Telefono" name="telefono">
+            <input type="text" class="form-control" id="telefono" placeholder="Telefono *" name="telefono ">
           </div>
-          <div class="col-6 mt-2">
+          <div class="col-12 mt-2">
             <input type="text" class="form-control" id="direccionweb" aria-describedby="emailHelp" placeholder="Direccion web" name="direccionweb">
           </div>
-          <div class="col-6 mt-2">
-          <textarea class="form-control" id="informacion" placeholder="Informacion de la empresa" rows="3" name="informacion"></textarea>
+          <div class="col-12 mt-2">
+          <textarea class="form-control" id="informacion" placeholder="Informacion de la empresa *" rows="3" name="informacion"></textarea>
           </div>
           <div class="col-6 mt-2">
             <input type="text" class="form-control" id="whatsapp" aria-describedby="WhatsApp" placeholder="WhatsApp" name="whatsapp">
           </div>
           <div class="col-6 mt-2">
-            <input type="file" class="form-control" id="file" name="file" onchange="ValidateSingleInput(this);">Logo empresa
+            <input type="file" class="form-control" id="file" name="file" onchange="ValidateSingleInput(this);">Logo empresa *
           </div>
           <div class="col-6 mt-2">
-            <input type="text" class="form-control" id="videourl" aria-describedby="emailHelp" placeholder="Video url" name="videourl">
+            <input type="url" class="form-control" id="videourl" aria-describedby="emailHelp" placeholder="Video url" name="videourl">
           </div>
           <div class="col-6 mt-2">
-            <input type="text" class="form-control" id="catalogourl" aria-describedby="emailHelp" placeholder="Catalogo url" name="catalogourl">
+            <input type="url" class="form-control" id="catalogourl" aria-describedby="emailHelp" placeholder="Catalogo url" name="catalogourl">
           </div>
 
           <div class="col-6 mt-2">
             <select id="pais" class="form-select" aria-label="Default select example" required name="pais">
-              <!-- <option selected value="0">Selecciona un pais</option> -->
-              </div>
-                <?php echo $empresa -> getHtmlPaises();?>
-            <!-- </select> -->
+              <option selected value="0">Selecciona un pais *</option>
+                <?php echo $empresa -> getHtmlPaises(); ?>
+            </select>
             </div>
 
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="ciudad" aria-describedby="emailHelp" placeholder="Ciudad" name="ciudad">
+              <input type="text" class="form-control" id="ciudad" aria-describedby="emailHelp" placeholder="Ciudad *" name="ciudad">
             </div>
             <label for="exampleInputEmail1" class="form-label mt-4">Redes sociales de la empresa:</label>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="facebook" aria-describedby="emailHelp" placeholder="Facebook" name="facebook">
+              <input type="url" class="form-control" id="facebook" aria-describedby="emailHelp" placeholder="Facebook" name="facebook">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="twitter" aria-describedby="emailHelp" placeholder="Twiter" name="twitter">
+              <input type="url" class="form-control" id="twitter" aria-describedby="emailHelp" placeholder="Twiter" name="twitter">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="instagram" aria-describedby="emailHelp" placeholder="Instagram" name="instagram">
+              <input type="url" class="form-control" id="instagram" aria-describedby="emailHelp" placeholder="Instagram" name="instagram">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="youtube" aria-describedby="emailHelp" placeholder="Youtube" name="youtube">
+              <input type="url" class="form-control" id="youtube" aria-describedby="emailHelp" placeholder="Youtube" name="youtube">
             </div>
 
             <label for="exampleInputEmail1" class="form-label mt-4">Datos del represetante de al empresa:</label>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="nom-rep" aria-describedby="emailHelp" placeholder="Nombre" name="nom-rep">
+              <input type="text" class="form-control" id="nom-rep" aria-describedby="emailHelp" placeholder="Nombre *" name="nom-rep">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="tele-rep" aria-describedby="emailHelp" placeholder="Telefono" name="tele-rep">
+              <input type="number" class="form-control" id="tele-rep" aria-describedby="emailHelp" placeholder="Telefono *" name="tele-rep">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="email-rep" aria-describedby="emailHelp" placeholder="Puesto" name="email-rep">
+              <input type="text" class="form-control" id="puesto-rep" aria-describedby="emailHelp" placeholder="Puesto representante *" name="puesto-rep">
             </div>
             <div class="col-6 mt-2">
-              <input type="text" class="form-control" id="link-rep" aria-describedby="emailHelp" placeholder="Link Higherlogic" name="link-rep">
+              <input type="email" class="form-control" id="correo-rep" aria-describedby="emailHelp" placeholder="Correo-representante *" name="correo-rep">
+            </div>
+            <div class="col-12 mt-2">
+              <input type="url" class="form-control" id="link-rep" aria-describedby="emailHelp" placeholder="Link Higherlogic" name="link-rep">
             </div>
             <div id="" class="col-12 mt-2">
-                <input type="file" name="foto" class="form-control" placeholder="Foto" onchange="ValidateSingleInput(this);">Fotografía del representante
+                <input type="file" id="file2" name="foto" class="form-control" placeholder="Foto" onchange="ValidateSingleInput(this);">Fotografía del representante *
             </div>
-            <label for="exampleInputEmail1" class="form-label mt-4">Categorias (Selecciona almenos 1):</label>
+            <label for="exampleInputEmail1" class="form-label mt-4">Categorias (Selecciona almenos 1): *</label>
 
 
 
@@ -109,14 +111,14 @@ $categorias = new Categoria();
 
           
             <label for="exampleInputEmail1" class="form-label mt-4">Productos (Máximo 6):</label>
-            <div id="listas" class="col-6 mt-2">
-                <input type="text" name="nom-prod[]" class="form-control" placeholder="Nombre del Producto">
+            <div id="listas" class="col-12 mt-2">
+                <input type="text" name="nom-prod[]" id="nombre-prod" class="form-control" placeholder="Nombre del Producto *">
             </div>
-            <div id="listas" class="col-6 mt-2">
-                <input type="text" name="desc-prod[]" class="form-control" placeholder="Descripcion del producto">
-            </div>
+            <div id="listas" class="col-12 mt-2">
+          <textarea class="form-control text-a" id="desc-prod" id="desc-prod" placeholder="descripcion del producto *" rows="3" name="desc-prod[]"></textarea>
+          </div>
             <div id="listas1" class="col-12 mt-2">
-                <input type="file" name="fotoProducto[]" class="form-control" placeholder="Descripcion del producto" onchange="ValidateSingleInput(this);">Imagen producto
+                <input type="file" id="file3" name="archivo[]" class="form-control imgproducto" placeholder="Foto del producto" onchange="ValidateSingleInput(this);" >Imagen producto *
             </div>
             <div class="col-12 mt-2">
             <input type="button" id="add_field" value="Agregar Producto" class="btn btn-success">
@@ -138,6 +140,8 @@ $categorias = new Categoria();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
     <script src="js/validar.js"></script>
     <script src="js/agregarCampo.js"></script>
+
+
 
 </body>
 </html>

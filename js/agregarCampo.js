@@ -6,14 +6,14 @@
     e.preventDefault();     //prevenir novos clicks
     if (x < campos_max) {
             $('#listas1').append('<div class="row">\
-                <div id="listas" class="col-6 mt-2">\
-                <input type="text" name="nom-prod[]" class="form-control col-6" placeholder="Nombre del Producto">\
-                </div>\
-                <div id="listas" class="col-6 mt-2">\
-                <input type="text" name="desc-prod[]" class="form-control col-6" placeholder="Nombre del Producto">\
+                <div id="listas" class="col-12 mt-2">\
+                <input type="text" name="nom-prod[]" id="nombre-prod" class="form-control" placeholder="Nombre del Producto *">\
                 </div>\
                 <div id="listas" class="col-12 mt-2">\
-                <input type="file" name="archivos[]" class="form-control col-6" placeholder="Nombre del Producto" onchange="ValidateSingleInput(this);">Imagen producto\
+                <textarea class="form-control" id="desc-prod" placeholder="descripcion del producto *" rows="3" name="desc-prod[]"></textarea>\
+                </div>\
+                <div id="listas" class="col-12 mt-2">\
+                <input type="file" id="file3" name="archivo[]" class="imgproducto" placeholder="Nombre del Producto *" onchange="ValidateSingleInput(this);">Imagen producto *\
                 </div>\
                     <a href="#" class="remover_campo">Remover</a>\
                   </div>');
