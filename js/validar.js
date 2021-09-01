@@ -1,4 +1,5 @@
-function validar(){
+const validar= ()=>{
+
 //  DATOS EMPRESA
     let nombre= document.getElementById("nombre").value;
     let direccion= document.getElementById("direccion").value;
@@ -64,16 +65,16 @@ function validar(){
     }
     
 
-function ValidateSingleInput(img) {
-  var _validFileExtensions = [".jpg", ".jpeg",".png"];    
+const ValidateSingleInput= (img)=> {
+  let validarExtension = [".jpg", ".jpeg",".png"];    
 
     if (img.type == "file") {
-        let sFileName = img.value;
-         if (sFileName.length > 0) {
+        let nombreArchivo = img.value;
+         if (nombreArchivo.length > 0) {
             let blnValid = false;
-            for (let j = 0; j < _validFileExtensions.length; j++) {
-                let sCurExtension = _validFileExtensions[j];
-                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+            for (let j = 0; j < validarExtension.length; j++) {
+                let extensionArchivo = validarExtension[j];
+                if (nombreArchivo.substr(nombreArchivo.length - extensionArchivo.length, extensionArchivo.length).toLowerCase() == extensionArchivo.toLowerCase()) {
                     blnValid = true;
                     break;
                 }
@@ -98,4 +99,20 @@ function ValidateSingleInput(img) {
 
   
 
+const validarurl= (url)=>{
+    let string = url.value;
 
+    if (string==""){
+      url.value=string;
+      return url;
+    }
+    
+       if (!~string.indexOf("http")) {
+      string = "http://" + string;
+      url.value = string;
+      console.log(string)
+      return url;
+       
+
+}
+}

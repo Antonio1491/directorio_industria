@@ -50,7 +50,7 @@ $categorias = new Categoria();
             <input type="file" class="form-control" id="file" name="file" onchange="ValidateSingleInput(this);">Logo empresa *
           </div>
           <div class="col-6 mt-2">
-            <input type="url" class="form-control" id="videourl" aria-describedby="emailHelp" placeholder="Video url" name="videourl">
+            <input type="url" class="form-control" id="videourl" aria-describedby="emailHelp" placeholder="Video url" name="videourl" onchange="validarurl(this)">
           </div>
           <div class="col-6 mt-2">
             <input type="url" class="form-control" id="catalogourl" aria-describedby="emailHelp" placeholder="Catalogo url" name="catalogourl">
