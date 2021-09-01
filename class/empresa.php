@@ -96,12 +96,8 @@ class Empresa extends Conexion{
     
   }
 
-  public function validarImg($img)
+  public function validarImg($type, $size)
   {
-
-    $type = $img["type"];
-
-    $size = $img["size"];
 
     if(($type == "image/jpg" || $type == "image/jpeg" || $type == "image/png") && ($size < 5000000))
     {
@@ -115,14 +111,14 @@ class Empresa extends Conexion{
   }
 
   //Método setea el nombre de la imagen y la válida devolviendo el nuevo nombre
-  public function setImg($img)
+  public function setImg($img, $size, $type)
   {
     
     $random=bin2hex(random_bytes(2));  //generar cadena random de 4 caracteres 
 
-    $imgName = "anpr-".$random.mb_strtolower(str_replace(' ', '-', $img["name"]));
+    $imgName = "anpr-".$random."-".mb_strtolower(str_replace(' ', '-', $img));
 
-   if($this -> validarImg($img))
+   if($this -> validarImg($type, $size))
    {
 
     return $imgName;
@@ -133,12 +129,15 @@ class Empresa extends Conexion{
 
   }
 
-  public function guardarImg($img)
+  public function guardarImg($img, $tmp_name)
   {
 
-    $dir = $_SERVER['DOCUMENT_ROOT'].'/directorio_industria/imagenes';
+    $dir = $_SERVER['DOCUMENT_ROOT'].'/directorio_industria/img';
 
-    if(move_uploaded_file($img["tmp_name"], $dir."/".$img))
+    // var_dump($dir);
+    // var_dump($img);
+
+    if(move_uploaded_file($tmp_name, $dir."/".$img))
     {
       return true;
     }

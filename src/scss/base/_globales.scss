@@ -1,0 +1,29 @@
+h1{
+  font-family: $fuentePrincipal;
+  font-weight: $bold;
+}
+
+.titulo-seccion{
+  color: $azulPrincipal;
+  font-family: $fuentePrincipal;
+  font-weight: $bold;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+
+.btn{
+  font-family: $fuentePrincipal;
+  font-weight: $bold;
+  text-transform: uppercase;
+  border-radius: 40px;
+}
+.btn__aqua{
+  background-color: $aqua;
+  color: $azulPrincipal;
+  transition: 1s;
+  &:hover{
+    background-color: $azulComplementario;
+  }
+}

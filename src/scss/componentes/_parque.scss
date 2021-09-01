@@ -1,0 +1,74 @@
+.parque{
+  background-image: url('./../src/img/parque.png');
+  // background-position: left;
+  background-repeat: no-repeat;
+  height: 300px;
+  // border: 1px solid red;
+  background-position: bottom center;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+  
+  .parque__nube:nth-of-type(1){
+   width: 300px;
+   height: 40px;
+   margin-top: 20px;
+   animation: nube1 30s ;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-timing-function: ease-out;
+   position: absolute;
+   z-index: 9;
+  }
+  .parque__nube:nth-of-type(2){
+    width: 150px;
+    height: 50px;
+    animation: nube2 30s ;
+    position: absolute;
+    animation-direction:alternate-reverse ;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    z-index: 9;
+  }
+  .parque__nube:nth-of-type(3){
+    width: 200px;
+    height: 60px;
+    margin-top: 30px;
+    animation: nube3 50s ;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    position: absolute;
+    z-index: 9;
+  }
+}
+
+@keyframes nube1{
+  from{
+    margin-left: 100%;
+    transform: scale(.5,.5);
+  }
+  to{
+    margin-right: 0%;
+    transform: scale(1,1);
+  }
+}
+@keyframes nube2{
+  from{
+    margin-left: 100%;
+    transform: scale(.3,.3);
+  }
+  to{
+    margin-right: -10%;
+    transform: scale(1,1);
+  }
+}
+@keyframes nube3{
+  from{
+    margin-left: 100%;
+  }
+  to{
+    margin-right: -300px;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "directorio_industria",
+  "version": "1.0.0",
+  "description": "Proyecto Directorio de la Industria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antonio1491/directorio_industria.git"
+  },
+  "author": "Antonio Góngora G.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Antonio1491/directorio_industria/issues"
+  },
+  "homepage": "https://github.com/Antonio1491/directorio_industria#readme",
+  "devDependencies": {
+    "dart-sass": "^1.25.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.2"
+  }
+}

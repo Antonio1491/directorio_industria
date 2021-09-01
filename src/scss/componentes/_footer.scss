@@ -1,0 +1,123 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #1f286b;
+  width: 100%;
+  padding: 25px;
+}
+  .primero {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+  }
+
+  .primero .enlaces{
+      margin-left: 8%;
+  }
+
+  .primero a{
+      color: #fff !important;
+      list-style: none;
+      text-decoration: none;
+      margin-right: 50px;
+      font-weight: bold;
+      font-size: 14px;
+      
+  }
+  .primero .borde {
+      border-left: 2.5px yellow solid;
+      padding-left: 20px;
+  }
+
+  .segundo{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 3px #c5c700 solid;
+      padding-top: 20px;
+
+  }
+
+  .footer_redes{
+      display: flex;
+      flex-direction: column;
+  }
+
+  .segundo img{
+      width: 200px;
+  }
+
+  .segundo .texto p {
+      color: #fff;
+      text-align: center;
+      line-height: 3px;
+  }
+
+  .segundo .footer_redes h5 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0;
+      margin-bottom: 15px;
+  }
+  
+  .redes_footer{
+      display: flex;
+      align-content: center;
+  }
+  .redes_footer img{
+  width: 40px;
+  
+}
+
+
+@media only screen and (max-width: 614px){
+
+.primero {
+      display: flex !important;
+      flex-direction: column !important;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  .segundo{
+      display: flex !important;
+      flex-direction: column !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      border-top: 3px #c5c700 solid;
+      padding-top: 20px;
+  }
+
+  .segundo img {
+      margin-bottom: 25px;
+  }
+  .segundo p{
+      font-size: 12px;
+  }
+  .segundo p:last-child{
+      margin-bottom: 10px;
+      
+  }
+  .segundo .footer_redes h5 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+  }
+  
+  .primero .enlaces {
+      margin-left: 11%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .primero .borde {
+      border-left: 2.5px yellow solid;
+      padding-left: 20px;
+      margin-top: 14px;
+  }
+}

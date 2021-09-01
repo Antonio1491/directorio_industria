@@ -34,10 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pais = $_POST["pais"];
     $ciudad = $_POST["ciudad"];
 
-    $logotipo = $_FILES["file"];
+    $logotipo = $_FILES["file"]["name"];
+    $tmp_name_logotipo = $_FILES["file"]["tmp_name"];
+    $size_logotipo = $_FILES["file"]["size"];
+    $type_logotipo = $_FILES["file"]["type"];
 
+    var_dump($logotipo);
      //setear las imagenes antes de guardarlas
-    $logotipo = $datosForm -> setImg($logotipo);
+    $logotipo = $datosForm -> setImg($logotipo, $size_logotipo, $type_logotipo);
+
+    var_dump($logotipo);
 
     $facebook = $_POST["facebook"];
     $twitter = $_POST["twitter"];
@@ -45,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $youtube = $_POST["youtube"];
 
    //guardar en la carpeta
-    $datosForm -> guardarImg($logotipo);
+    $datosForm -> guardarImg($logotipo, $tmp_name_logotipo);
   
     //guardar los datos de la empresa
     // echo $nombre,$direccion,$email,$telefono,$direccionweb,$informacion,$whatsapp,$videourl,$catalogourl,$archivoF;
@@ -77,7 +83,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $telRepresentante = $_POST["tele-rep"];
     $puesto = $_POST["email-rep"];
     $urlHL = $_POST["link-rep"];
-    $foto = $_POST["foto"];
+    $foto = $_FILES["foto"]["name"];
+    $tmp_name_foto = $_FILES["foto"]["tmp_name"];
+    $size_foto = $_FILES["foto"]["size"];
+    $type_foto = $_FILES["foto"]["type"];
+    
+    $foto = $datosForm -> setImg($foto, $size_foto, $type_foto);
+
+    var_dump($foto);
+
+    $datosForm -> guardarImg($foto, $tmp_name_foto);
 
     $dataRepresentante= [
         "nombre" => "$nomRepresentante",
@@ -99,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $saveCategorias = $categorias -> guardarCatEmpresa($idEmpresa, $categoria);
 
     //guaradar los datos del producto
-    $productos = $_POST["nom-prod"];
+    $productos = $_FILES["nom-prod"];
 
     $descripcionProducto = $_POST["desc-prod"];
 
